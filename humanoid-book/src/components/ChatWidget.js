@@ -21,7 +21,7 @@ export default function ChatWidget() {
     try {
       console.log("Sending message:", currentInput);
       
-      const res = await axios.post("https://backend-fi0d.onrender.com", {
+      const res = await axios.post("https://backend-fi0d.onrender.com/chat", {
         message: currentInput
       }, {
         headers: {
