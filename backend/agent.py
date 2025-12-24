@@ -8,15 +8,17 @@ enable_verbose_stdout_logging()
 
 load_dotenv()
 set_tracing_disabled(disabled=True)
-
-gemini_api_key = "AIzaSyByjQsaWw7c-Ngocx14pRBGzl7l8ef1WaI"
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+# gemini_api_key = "AIzaSyByjQsaWw7c-Ngocx14pRBGzl7l8ef1WaI"
 provider = AsyncOpenAI(
     api_key=gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+    base_url="https://openrouter.ai/api/v1",
+    # base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.5-flash",
+    model="xiaomi/mimo-v2-flash:free",
+    # model="gemini-2.5-flash",
     openai_client=provider
 )
 
